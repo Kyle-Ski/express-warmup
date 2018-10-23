@@ -1,0 +1,26 @@
+{
+  "name": "express-warmup",
+  "version": "1.0.0",
+  "description": "## Instructions",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kyle-Ski/express-warmup.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kyle-Ski/express-warmup/issues"
+  },
+  "homepage": "https://github.com/Kyle-Ski/express-warmup#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.4"
+  }
+}
