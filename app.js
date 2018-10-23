@@ -12,11 +12,11 @@ app.get('/', (req, res, next) => {
 })
 
 app.get('/cakes/:id', (req, res, next) => {
-    const id = req.params.id
+    const id = Number(req.params.id)
     if (!(Number(id))){
         next()
     }
-    const cake = cakes.filter(item => item.id == id)[0]
+    const cake = cakes.filter(item => Number(item.id) === id)[0]
     res.json({cake: cake})
 })
 app.post('/', (req, res, next) =>{
@@ -29,13 +29,13 @@ app.use(notFound)
 app.use(errorHandler)
 
 function notFound(req, res, next) {
-    res.status(404).send({error: 'Not found!', status: 404, url: req.originalUrl})
+    res.status(404).redirect('https://http.cat/404')
 }
 
 function errorHandler(err, req, res, next) {
     console.error('ERROR', err)
     const stack =  process.env.NODE_ENV !== 'production' ? err.stack : undefined
-    res.status(500).send({error: err.message, stack, url: req.originalUrl})
+    res.status(500).redirect('https://http.cat/500')
 }
 
-app.listen(port, () => console.log(`I got you on ${port}`))
+app.listen(port, () => console.log(`I got you on http://localhost:${port}`))
